@@ -1,3 +1,5 @@
+// DELETE THIS
+
 _coreGroup1 = createGroup[independent, true];
 [_coreGroup1, getMarkerPos "campSpawn1", 5] call BIS_fnc_taskPatrol;
 _coreGroup2 = createGroup[independent, true];
