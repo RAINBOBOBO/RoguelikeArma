@@ -1,7 +1,7 @@
 // args = [str _spawnZone, int _lootTier, int _spawnCount]
 // returns nothing
 
-// Loot spawns in zones whenever the player enters a new zone. This script
+// Whenever the player enters a new zone loot spawns in that zone. This script
 // determines which waypoints to use to spawn loot based on the spawnZone arg.
 // Then, it uses the spawnCount arg to spawn that many empty ammo boxes and
 // calls the lootPicker function to select items to populate those ammo boxes.
@@ -57,7 +57,7 @@ for [{private _i = 0}, {_i < _thisZoneSpawnCount}, {_i = _i + 1}] do {
 	];
 	if (isNull _lootCrate) then {systemChat (str _i + "failed to create");};
 
-	// Move crate random distance + direction away from center
+	// Move crate random distance and direction away from center
 	private _dist = (10 + floor(random 100));
 	private _dir = [0,359] call BIS_fnc_randomInt;
 	private _newPos = [_lootCrate, _dist, _dir] call BIS_fnc_relPos;
