@@ -64,7 +64,8 @@ private _tier3Rare = _tier4Rare + [
 	[["V_PlateCarrierGL_rgr", 1]],
 	[["rhs_6b7_1m_emr", 1]],
 	[["CUP_H_RUS_K6_3_Shield_Down", 1]],
-	[["CUP_H_RUS_SSH68_olive", 1]]
+	[["CUP_H_RUS_SSH68_olive", 1]],
+	[["SmokeShell", 2]]
 ];
 
 private _tier3Legendary = _tier4Legendary + [
@@ -103,7 +104,9 @@ private _tier2Rare = _tier3Rare + [
 	[["muzzle_snds_acp", 1]],
 	[["CUP_optic_ekp_8_02", 1]],
 	[["CUP_muzzle_Bizon", 1]],
-	[["CUP_optic_MAAWS_scope", 1]]
+	[["CUP_optic_MAAWS_scope", 1]],
+	[["HandGrenade", 2]],
+	[["MiniGrenade", 2]]
 ];
 
 private _tier2Legendary = _tier3Legendary + [

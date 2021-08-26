@@ -9,14 +9,14 @@
 
 // Spawn Locations
 private _allSpawnZones = [
-	["lopatino", ["loot_lopatino_1", [
+	["lopatino", [
 		"loot_lopatino_1",
 		"loot_lopatino_2",
 		"loot_lopatino_3",
 		"loot_lopatino_4",
 		"loot_lopatino_5"
-	]]],
-	["airfield1", ["loot_airfield1_1", [
+	]],
+	["airfield1", [
 		"loot_airfield1_1",
 		"loot_airfield1_2",
 		"loot_airfield1_3",
@@ -24,7 +24,7 @@ private _allSpawnZones = [
 		"loot_airfield1_5",
 		"loot_airfield1_6",
 		"loot_airfield1_7"
-	]]]
+	]]
 ];
 
 
@@ -33,8 +33,8 @@ private ["_thisZone", "_thisZoneFirstMarker", "_thisZoneRemainingMarkers"];
 for [{private _i = 0}, {_i < count _allSpawnZones}, {_i = _i + 1}] do {
 	if (((_allSpawnZones select _i)select 0) isEqualTo (_this select 0)) then {
 		_thisZone = (_allSpawnZones select _i);
-		_thisZoneFirstMarker = (_thisZone select 1)select 0;
-		_thisZoneRemainingMarkers = (_thisZone select 1)select 1;
+		_thisZoneFirstMarker = (_thisZone select 1) select 0;
+		_thisZoneRemainingMarkers = (_thisZone select 1);
 	};
 };
 

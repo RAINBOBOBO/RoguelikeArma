@@ -19,6 +19,7 @@ private _factionSkillRanges = [
 
 private _spawnPos = (_this select 0);
 private _factionPool = (_this select 1);
+private _amountToSpawn = (_this select 2);
 
 // select a side from the pool
 // TODO: tag the new group with their faction 

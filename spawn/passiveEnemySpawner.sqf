@@ -19,7 +19,7 @@ while {true} do {
 	if (passiveEnemyCount < _maxEnemyGroupsSpawned) then {
 		// determine spawn position
 		private _spawnDistance = (floor(random _spawnDistVariance) + _spawnDistMin);
-		_spawnPos = _spawnTarget getRelPos [_spawnDistance, floor(random 360)];
+		private _spawnPos = _spawnTarget getRelPos [_spawnDistance, floor(random 360)];
 
 		// TODO: determine available factions by map position
 		private _allFactions = ["survivors", "anarchists"];

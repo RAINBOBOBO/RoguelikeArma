@@ -2,11 +2,10 @@
 // returns Unit Loadout Array
 
 
-hint "aLP";
-
 private _weaponChoice = floor(random 2);
 
 private "_selectedARifleCFG";
+private _selectedPrimary = [];
 if (_weaponChoice == 0) then {
 	// Primary weapon
 	private _aRiflePoolCFG = [
@@ -16,7 +15,7 @@ if (_weaponChoice == 0) then {
 	_selectedARifleCFG = _aRiflePoolCFG select (
 		floor(random count _aRiflePoolCFG)
 	);
-	private _selectedPrimary = [
+	_selectedPrimary = [
 		(_selectedARifleCFG select 0),
 		"",
 		"",
@@ -25,7 +24,7 @@ if (_weaponChoice == 0) then {
 		[],
 		""
 	];
-}
+};
 
 
 // Secondary weapon
@@ -38,6 +37,7 @@ private _selectedSecondary = _secondaryPool select (
 
 
 private "_selectedHGunCFG";
+private _selectedHandGun = [];
 if (_weaponChoice == 1) then {
 	private _hGunPoolCFG = [
 		["CUP_hgun_M9", "CUP_15Rnd_9x19_M9", 15],
@@ -48,7 +48,7 @@ if (_weaponChoice == 1) then {
 	_selectedHGunCFG = _hGunPoolCFG select (
 		floor(random count _hGunPoolCFG)
 	);
-	private _selectedHandGun = [
+	_selectedHandGun = [
 		(_selectedHGunCFG select 0),
 		"",
 		"",
@@ -57,35 +57,38 @@ if (_weaponChoice == 1) then {
 		[],
 		""
 	];
-}
+};
 
 
-private ["_selectedWeaponCFG", "_magCount"];
+private "_selectedWeaponCFG";
+private _magCount = 2;
 if (_weaponChoice == 0) then {
 	_selectedWeaponCFG = _selectedARifleCFG;
-	if (_selectedWeaponCFG)
+
+	if ((_selectedWeaponCFG select 0) isEqualTo "CUP_sgun_CZ584_RIS") then {
+		_magCount = 6;
+	};
 } else {
 	_selectedWeaponCFG =	_selectedHGunCFG;
-	_magCount = 2;
 };
 
 // Uniform pool
 private _uniformPool = [
 	[
 		"U_BG_Guerilla2_1",
-		[[(_selectedWeaponCFG select 1), (_selectedWeaponCFG select 2), _magCount]]
+		[[(_selectedWeaponCFG select 1), _magCount, (_selectedWeaponCFG select 2)]]
 	],
 	[
 		"U_BG_Guerilla2_2",
-		[[(_selectedWeaponCFG select 1), (_selectedWeaponCFG select 2), _magCount]]
+		[[(_selectedWeaponCFG select 1), _magCount, (_selectedWeaponCFG select 2)]]
 	],
 	[
 		"U_BG_Guerilla2_3",
-		[[(_selectedWeaponCFG select 1), (_selectedWeaponCFG select 2), _magCount]]
+		[[(_selectedWeaponCFG select 1), _magCount, (_selectedWeaponCFG select 2)]]
 	],
 	[
 		"U_BG_Guerilla3_1",
-		[[(_selectedWeaponCFG select 1), (_selectedWeaponCFG select 2), _magCount]]
+		[[(_selectedWeaponCFG select 1), _magCount, (_selectedWeaponCFG select 2)]]
 	]
 ];
 private _selectedUniform = _uniformPool select (
