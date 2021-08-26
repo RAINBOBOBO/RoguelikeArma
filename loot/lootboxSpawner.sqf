@@ -8,7 +8,7 @@
 
 
 // Spawn Locations
-private _spawnZones = [
+private _allSpawnZones = [
 	["lopatino", ["loot_lopatino_1", [
 		"loot_lopatino_1",
 		"loot_lopatino_2",
@@ -27,11 +27,12 @@ private _spawnZones = [
 	]]]
 ];
 
-// Define zone specific variables
+
+// define zone specific variables
 private ["_thisZone", "_thisZoneFirstMarker", "_thisZoneRemainingMarkers"];
-for [{private _i = 0}, {_i < count _spawnZones}, {_i = _i + 1}] do {
-	if (((_spawnZones select _i)select 0) isEqualTo (_this select 0)) then {
-		_thisZone = (_spawnZones select _i);
+for [{private _i = 0}, {_i < count _allSpawnZones}, {_i = _i + 1}] do {
+	if (((_allSpawnZones select _i)select 0) isEqualTo (_this select 0)) then {
+		_thisZone = (_allSpawnZones select _i);
 		_thisZoneFirstMarker = (_thisZone select 1)select 0;
 		_thisZoneRemainingMarkers = (_thisZone select 1)select 1;
 	};
@@ -45,7 +46,7 @@ if (_thisZoneSpawnCount < currentTier) then {
 	publicVariable "currentTier";
 };
 
-// Spawn loot crates and fill with loot
+// spawn loot crates and fill with loot
 for [{private _i = 0}, {_i < _thisZoneSpawnCount}, {_i = _i + 1}] do {
 	// Spawn crate
 	_lootCrate = createVehicle [
@@ -57,21 +58,21 @@ for [{private _i = 0}, {_i < _thisZoneSpawnCount}, {_i = _i + 1}] do {
 	];
 	if (isNull _lootCrate) then {systemChat (str _i + "failed to create");};
 
-	// Move crate random distance and direction away from center
+	// move crate random distance and direction away from center
 	private _dist = (10 + floor(random 100));
 	private _dir = [0,359] call BIS_fnc_randomInt;
 	private _newPos = [_lootCrate, _dist, _dir] call BIS_fnc_relPos;
 	_lootCrate setPos _newPos;
 
-	// Clear crate inventory
+	// clear crate inventory
 	clearItemCargo _lootCrate;
 	clearWeaponCargo _lootCrate;
 	clearMagazineCargo _lootCrate;
 
-	// Call loot spawner script
+	// call loot spawner script
 	private _lootSpawn = (_this select 1) call lootPicker;
 
-	// Add loot to crate
+	// add loot to crate
 	for [{private _i = 0}, {_i < count _lootSpawn}, {_i = _i + 1}] do {
 		_lootCrate addItemCargo (_lootSpawn select _i);
 	};

@@ -41,6 +41,7 @@ private _tier4 = [
 	_tier4Legendary
 ];
 
+
 // Tier 3
 private _tier3Common =  _tier4Common + [
 	[["hlc_muzzle_Evo40", 1]],
@@ -81,6 +82,7 @@ private _tier3 = [
 	_tier3Legendary
 ];
 
+
 // Tier 2
 private _tier2Common = _tier3Common + [
 	[["CUP_30Rnd_9x19_MP5", 2]],
@@ -115,6 +117,7 @@ private _tier2 = [
 	_tier2Rare,
 	_tier2Legendary
 ];
+
 
 // Tier 1
 private _tier1Common = _tier2Common + [
@@ -160,7 +163,7 @@ private _tier1 = [
 ];
 
 
-// Define loot tier
+// define loot tier
 private "_thisLootTier";
 switch (_this) do {
 	case 1: {_thisLootTier = _tier1};

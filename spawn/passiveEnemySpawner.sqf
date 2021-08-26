@@ -44,19 +44,18 @@ while {true} do {
 			_amountToSpawn
 		] call enemySpawner;
 
-		_newGroup setVariable ["spawned", true];
+		_newGroup setVariable ["passiveSpawned", true];
 
 		_newGroup setBehaviour "SAFE";
 		_newGroup setSpeedMode "NORMAL";
 		_newGroup setCombatMode "RED";
-
 		[_newGroup, _spawnPos, 300] call BIS_fnc_taskPatrol;
 	};
 
 	// delete units that are too far
 	private _spawnedGroups = [];
 	{
-		if (_x getVariable "spawned") then {_spawnedGroups = _spawnedGroups + [_x]};
+		if (_x getVariable "passiveSpawned") then {_spawnedGroups = _spawnedGroups + [_x]};
 	} forEach allGroups;
 
 	{

@@ -6,8 +6,18 @@ passiveEnemyCount = 0;
 lootPicker = compile preprocessFileLineNumbers "loot\lootPicker.sqf";
 enemySpawner = compile preprocessFileLineNumbers "spawn\enemySpawner.sqf";
 factionToSide = compile preprocessFileLineNumbers "utils\factionToSide.sqf";
-survivorLoadoutPicker = compile preprocessFileLineNumbers 
-	"spawn\survivorLoadoutPicker.sqf";
+survivorLoadoutPicker = compile preprocessFileLineNumbers
+	"spawn\loadouts\survivorLoadoutPicker.sqf";
+anarchistLoadoutPicker = compile preprocessFileLineNumbers 
+	"spawn\loadouts\anarchistLoadoutPicker.sqf";
+raiderLoadoutPicker = compile preprocessFileLineNumbers 
+	"spawn\loadouts\raiderLoadoutPicker.sqf";
+isolationistLoadoutPicker = compile preprocessFileLineNumbers 
+	"spawn\loadouts\isolationistLoadoutPicker.sqf";
+kingdomLoadoutPicker = compile preprocessFileLineNumbers 
+	"spawn\loadouts\kingdomLoadoutPicker.sqf";
+rebuilderLoadoutPicker = compile preprocessFileLineNumbers 
+	"spawn\loadouts\rebuilderLoadoutPicker.sqf";
 
 // Set faction relations
 civilian setFriend[east, 0];  

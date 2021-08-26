@@ -1,6 +1,8 @@
-//
+// args = 
+// returns Unit Loadout Array
 
 
+hint "IS THIS THING ON";
 // Primary weapon
 private _primaryPool = [
 	[]
@@ -38,24 +40,24 @@ private _selectedHandGun = [
 	""
 ];
 
-
+// TODO: rewrite this better pls
 // Uniform pool
 private _uniformPool = [
 	[
 		"UK3CB_CHC_C_U_WOOD_01",
-		[[(_selectedHGunCFG select 1), 1, (_selectedHGunCFG select 2)]]
+		[[(_selectedHGunCFG select 1), (_selectedHGunCFG select 2), 1]]
 	],
 	[
 		"UK3CB_CHC_C_U_WOOD_02",
-		[[(_selectedHGunCFG select 1), 1, (_selectedHGunCFG select 2)]]
+		[[(_selectedHGunCFG select 1), (_selectedHGunCFG select 2), 1]]
 	],
 	[
 		"UK3CB_CHC_C_U_WOOD_03",
-		[[(_selectedHGunCFG select 1), 1, (_selectedHGunCFG select 2)]]
+		[[(_selectedHGunCFG select 1), (_selectedHGunCFG select 2), 1]]
 	],
 	[
 		"UK3CB_CHC_C_U_WOOD_04",
-		[[(_selectedHGunCFG select 1), 1, (_selectedHGunCFG select 2)]]
+		[[(_selectedHGunCFG select 1)), (_selectedHGunCFG select 2), 1]]
 	]
 ];
 private _selectedUniform = _uniformPool select (
@@ -106,7 +108,7 @@ private _selectedHeadgear = _headgearPool select (
 );
 
 
-// facewear pool
+// Facewear pool
 private _facewearPool = [
 	""
 ];
